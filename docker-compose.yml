@@ -1,0 +1,15 @@
+version: '2'
+services:
+    mongodb:
+        image: mongo:3.6.8
+        ports:
+        - 27017:27017
+        volumes:
+        - ./mongodb_data_container:/data/db
+        
+    flask-simple:
+        build: .
+        ports:
+            - 5000:5000
+        volumes:
+            - ./src:/code

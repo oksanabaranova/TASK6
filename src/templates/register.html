@@ -1,0 +1,29 @@
+<html>
+  <head>
+  {{ form.csrf_token }}
+    <title>Oksana Registration Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Registration Page</h1>
+      <br>
+    <form method="POST" action="/register">
+    {{ form.csrf_token }}
+        {{ form.username }} <br>
+        {{ form.password }}  <br>
+        <input type="submit" value="Register">
+    </form>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+    </div>
+  </body>
+</html>
+ 
