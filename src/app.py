@@ -24,7 +24,10 @@ class User(UserMixin):
         
     @classmethod
     def getuser(cls,username):
-        return User(username,cls.getuserfromdb(cls,username)[1])
+        if cls.getuserfromdb(cls,username) is not None:
+            return User(username,cls.getuserfromdb(cls,username)[1])
+        else:
+            return None
     
     @classmethod
     def get(cls,id):
